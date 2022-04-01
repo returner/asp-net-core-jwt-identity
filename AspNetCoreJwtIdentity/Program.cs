@@ -1,5 +1,10 @@
-using AspNetCoreJwtIdentity.Auth;
+using AspNetCoreJwtIdentity.Filters;
+using AspNetCoreJwtIdentity.Policies;
+using AspNetCoreJwtIdentity.Services;
+using Entities;
+using Entities.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -15,6 +20,8 @@ builder.Services.AddControllers();
  * ValidateIssuer는 Issuer의 유효성여부를 ValidAudience는 Audiance의 유효성 여부, 
  * ValidateLifetime는 Token의 생명주기를, ValidateIssuerSigningKey는 Token의 유효성을 검증할지 설정
  */
+
+var appSettings = new ConfigurationService(builder.Configuration).AppSettings();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
@@ -35,8 +42,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 builder.Services.AddAuthorization(config =>
 {
-    config.AddPolicy(Policies.Admin, Policies.AdminPolicy());
-    config.AddPolicy(Policies.User, Policies.UserPolicy());
+    config.AddPolicy(IdentityPolicy.Admin, IdentityPolicy.AdminPolicy());
+    config.AddPolicy(IdentityPolicy.User, IdentityPolicy.UserPolicy());
 });
 
 //--------------------------------------------------------------------------
@@ -52,8 +59,12 @@ builder.Services.AddSwaggerGen(c =>
         Type = SecuritySchemeType.Http,
         Scheme = "bearer",
     });
-    c.OperationFilter<AuthorizeCheckOperationFilter>();
+    c.OperationFilter<SwaggerAuthorizeCheckOperationFilter>();
 });
+
+//**************** InMemoryDatabase
+builder.Services.AddDbContext<IIdentityContext, IdentityContext>(opt => opt.UseInMemoryDatabase(databaseName: "AspNetCoreJwtIdentity"));
+builder.Services.AddSingleton<IIdentityContext, IdentityContext>();
 
 var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿using AspNetCoreJwtIdentity.Auth;
+﻿using AspNetCoreJwtIdentity.Policies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +22,7 @@ namespace AspNetCoreJwtIdentity.Controllers
             return "ok auth api";
         }
 
-        [Authorize(Policy = Policies.User)]
+        [Authorize(Policy = IdentityPolicy.User)]
         [HttpGet("Policy")]
         public string GetPolicy()
         {
