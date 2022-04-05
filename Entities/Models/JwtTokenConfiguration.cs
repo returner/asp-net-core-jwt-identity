@@ -8,6 +8,7 @@ namespace Entities.Interfaces
 {
     public record JwtTokenConfiguration
     {
-        TimeSpan ExpireInterval { get; set; }
+        public int Id { get; set; }
+        public int ExpireIntervalMinutes { get; set; }
     }
 }

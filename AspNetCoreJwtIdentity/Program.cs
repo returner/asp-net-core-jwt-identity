@@ -23,7 +23,9 @@ builder.Services.AddControllers();
 
 var appSettings = new ConfigurationService(builder.Configuration).AppSettings();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
 {
     options.RequireHttpsMetadata = false;
     options.SaveToken = true;
