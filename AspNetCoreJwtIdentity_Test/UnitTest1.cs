@@ -19,7 +19,7 @@ namespace AspNetCoreJwtIdentity_Test
             var context = database.CreateContext();
             var userRepository = new Mock<IUserRepository>();
 
-            var _sut = new UserController(userRepository.Object);
+            var _sut = new UserRepoController(userRepository.Object);
 
             var result = await _sut.GetAllUsers();
             var user2 = result.FirstOrDefault(d => d.Username.Equals("user2"));

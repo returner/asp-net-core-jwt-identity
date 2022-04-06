@@ -8,10 +8,10 @@ namespace AspNetCoreJwtIdentity.Controllers
     //공부할것
     //https://docs.microsoft.com/ko-kr/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
     //https://www.c-sharpcorner.com/UploadFile/b1df45/unit-of-work-in-repository-pattern/
-    public class UserController : ControllerBase
+    public class UserRepoController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
-        public UserController(IUserRepository userRespository)
+        public UserRepoController(IUserRepository userRespository)
         {
             _userRepository = userRespository;
         }
