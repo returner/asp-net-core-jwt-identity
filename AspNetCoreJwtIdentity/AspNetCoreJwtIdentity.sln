@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "..\Entities\Ent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedModel", "..\SharedModel\SharedModel.csproj", "{394CDB8F-DE5E-4950-8579-809272CB9355}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreJwtIdentity_Test", "..\AspNetCoreJwtIdentity_Test\AspNetCoreJwtIdentity_Test.csproj", "{0C29EFDD-236A-4609-BC86-0817B252D1C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreJwtIdentity_Test", "..\AspNetCoreJwtIdentity_Test\AspNetCoreJwtIdentity_Test.csproj", "{0C29EFDD-236A-4609-BC86-0817B252D1C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqrsMediatR", "..\CqrsMediatR\CqrsMediatR.csproj", "{C78F986F-B580-48FE-964E-B35E5957E442}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0C29EFDD-236A-4609-BC86-0817B252D1C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C29EFDD-236A-4609-BC86-0817B252D1C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C29EFDD-236A-4609-BC86-0817B252D1C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C78F986F-B580-48FE-964E-B35E5957E442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C78F986F-B580-48FE-964E-B35E5957E442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C78F986F-B580-48FE-964E-B35E5957E442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C78F986F-B580-48FE-964E-B35E5957E442}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
