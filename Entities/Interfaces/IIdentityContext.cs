@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Interfaces
 {
-    public interface IIdentityContext
+    public interface IIdentityContext : IDisposable
     {
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
         int SaveChanges();
