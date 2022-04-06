@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace AspNetCoreJwtIdentity.Auth
+namespace AspNetCoreJwtIdentity.Policies
 {
-    public class Policies
+    public class IdentityPolicy
     {
         public const string Admin = "admin";
         public const string User = "user";

@@ -3,10 +3,10 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 
-namespace AspNetCoreJwtIdentity.Auth
+namespace AspNetCoreJwtIdentity.Filters
 {
     //https://github.com/domaindrivendev/Swashbuckle.AspNetCore/issues/1425
-    public class AuthorizeCheckOperationFilter : IOperationFilter
+    public class SwaggerAuthorizeCheckOperationFilter : IOperationFilter
     {
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
