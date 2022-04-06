@@ -1,8 +1,10 @@
 using AspNetCoreJwtIdentity.Filters;
 using AspNetCoreJwtIdentity.Policies;
+using AspNetCoreJwtIdentity.Repositories.MediatR;
 using AspNetCoreJwtIdentity.Services;
 using Entities;
 using Entities.Interfaces;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -68,6 +70,9 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddDbContext<IIdentityContext, IdentityContext>(opt => opt.UseInMemoryDatabase(databaseName: "AspNetCoreJwtIdentity"));
 builder.Services.AddSingleton<IIdentityContext, IdentityContext>();
 
+//mediatR
+builder.Services.AddSingleton<IDataAccess, DataAccess>();
+builder.Services.AddMediatR(typeof(LibraryEntrypoint).Assembly);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

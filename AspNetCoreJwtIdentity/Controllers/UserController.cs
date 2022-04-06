@@ -1,21 +1,47 @@
-﻿using Entities.Interfaces;
+﻿using Entities;
+using Entities.Interfaces;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCoreJwtIdentity.Controllers
 {
+    //공부할것
+    //https://docs.microsoft.com/ko-kr/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
+    //https://www.c-sharpcorner.com/UploadFile/b1df45/unit-of-work-in-repository-pattern/
     public class UserController : ControllerBase
     {
-        private readonly IIdentityContext _context;
-        public UserController(IIdentityContext context)
+        private readonly IUserRepository _userRepository;
+        public UserController(IUserRepository userRespository)
         {
-            _context = context;
+            _userRepository = userRespository;
         }
 
         [HttpGet]
-        public IEnumerable<User> GetAllUsers()
+        public async Task<IEnumerable<User>> GetAllUsers()
         {
-            return _context.Users.ToArray();
+            return await _userRepository.GetAllUsersAsync();
         }
     }
+
+    public interface IUserRepository
+    { 
+        Task<IEnumerable<User>> GetAllUsersAsync();
+    }
+
+    public class UserRepository : IUserRepository, IDisposable
+    {
+        private IIdentityContext _context;
+        public UserRepository(IIdentityContext context) => _context = context;
+
+        public void Dispose()
+        {
+            _context.Dispose();
+        }
+
+        public Task<IEnumerable<User>> GetAllUsersAsync()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
 }
