@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedModel.Response
+namespace SharedModel.Contract.Response
 {
     public record UserResponse
     {

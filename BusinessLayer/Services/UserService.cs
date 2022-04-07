@@ -3,12 +3,6 @@ using Entities.Interfaces;
 using Entities.Models;
 using SharedModel.DataTransfers;
 using SharedModel.DataTransfers.Responses;
-using SharedModel.Request;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer.Services
 {
@@ -40,7 +34,7 @@ namespace BusinessLayer.Services
             }
         }
 
-        public Task<IEnumerable<User>> GetAllUsers(UserRequest request)
+        public Task<IEnumerable<User>> GetAllUsers(UserDtoRequest request)
         {
             throw new NotImplementedException();
         }

@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedModel.Request
+namespace SharedModel.Enums
 {
-    public record UserRequest(string Username, string Password);
+    public enum ApiError
+    {
+        InvalidOperation = 1001,
+    }
 }

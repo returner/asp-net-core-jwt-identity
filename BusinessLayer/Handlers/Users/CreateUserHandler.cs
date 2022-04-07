@@ -1,17 +1,8 @@
-﻿using BusinessLayer.Commands;
-using BusinessLayer.Commands.Users;
-using BusinessLayer.ServiceInterfaces;
+﻿using BusinessLayer.Commands.Users;
 using Entities.Interfaces;
 using Entities.Models;
 using MediatR;
 using SharedModel.DataTransfers.Responses;
-using SharedModel.Request;
-using SharedModel.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer.Handlers.Users
 {
