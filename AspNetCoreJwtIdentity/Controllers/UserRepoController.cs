@@ -28,15 +28,10 @@ namespace AspNetCoreJwtIdentity.Controllers
         Task<IEnumerable<User>> GetAllUsersAsync();
     }
 
-    public class UserRepository : IUserRepository, IDisposable
+    public class UserRepository : IUserRepository
     {
         private IIdentityContext _context;
         public UserRepository(IIdentityContext context) => _context = context;
-
-        public void Dispose()
-        {
-            _context.Dispose();
-        }
 
         public Task<IEnumerable<User>> GetAllUsersAsync()
         {

@@ -3,6 +3,7 @@ using AspNetCoreJwtIdentity.Policies;
 using AspNetCoreJwtIdentity.Repositories.MediatR;
 using AspNetCoreJwtIdentity.Services;
 using BusinessLayer;
+using BusinessLayer.ServiceExtentions;
 using Entities;
 using Entities.Interfaces;
 using MediatR;
@@ -79,6 +80,7 @@ var options = new DbContextOptionsBuilder<IdentityContext>()
 builder.Services.AddDbContext<IIdentityContext, IdentityContext>(opt => opt.UseSqlite(_connection));
 builder.Services.AddScoped<IIdentityContext, IdentityContext>();
 
+builder.Services.AddUserService();
 //mediatR
 //builder.Services.AddSingleton<IDataAccess, DataAccess>();
 builder.Services.AddMediatR(typeof(BusinessLayerBootstrap).Assembly);
@@ -97,5 +99,9 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+var contextScope = app.Services.CreateScope();
+var context = contextScope.ServiceProvider.GetRequiredService<IdentityContext>(); 
+IdentityContextInitializeDatabase.InitDatabaseAsync(context).GetAwaiter().GetResult();
 
 app.Run();

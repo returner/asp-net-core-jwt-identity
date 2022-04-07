@@ -18,7 +18,6 @@ namespace Entities
         public IdentityContext(DbContextOptions<IdentityContext> options)
             : base(options)
         {
-
         }
 
         public DbSet<UserPool> UserPools { get; set; } = null!;
