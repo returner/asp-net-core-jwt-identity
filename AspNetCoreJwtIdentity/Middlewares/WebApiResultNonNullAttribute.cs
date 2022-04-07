@@ -27,6 +27,8 @@ namespace AspNetCoreJwtIdentity.Middlewares
                             DateFormatString = "yyyy-MM-dd HH:mm:ss",
 
                         };
+                        //결과를 wrapping 해야한다면 아래처럼 써야함
+                        //context.Result = new JsonResult(new { data = objectResult?.Value }, settings); 
                         context.Result = new JsonResult(objectResult?.Value, settings);
                     }
                     else
