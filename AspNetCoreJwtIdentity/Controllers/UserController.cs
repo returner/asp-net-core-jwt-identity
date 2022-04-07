@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Commands;
+using BusinessLayer.Commands.Users;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SharedModel.DataTransfers;
@@ -20,6 +21,7 @@ namespace AspNetCoreJwtIdentity.Controllers
             try
             {
                 var result = await _mediator.Send(new CreateUserCommand(new UserDtoRequest(request.Username, request.Password)));
+
                 return Ok(result);
             }
             catch(Exception ex)
