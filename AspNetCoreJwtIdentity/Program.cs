@@ -2,10 +2,12 @@ using AspNetCoreJwtIdentity.Filters;
 using AspNetCoreJwtIdentity.Policies;
 using AspNetCoreJwtIdentity.Repositories.MediatR;
 using AspNetCoreJwtIdentity.Services;
+using BusinessLayer;
 using Entities;
 using Entities.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -15,7 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
 
 // authentication : https://lab.cliel.com/entry/ASPNET-Core-Web-API-JWT-%EC%9D%B8%EC%A6%9D
 /*
@@ -67,12 +69,20 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 //**************** InMemoryDatabase
-builder.Services.AddDbContext<IIdentityContext, IdentityContext>(opt => opt.UseInMemoryDatabase(databaseName: "AspNetCoreJwtIdentity"));
-builder.Services.AddSingleton<IIdentityContext, IdentityContext>();
+//builder.Services.AddDbContext<IIdentityContext, IdentityContext>(opt => opt.UseInMemoryDatabase(databaseName: "AspNetCoreJwtIdentity"));
+var _connection = new SqliteConnection("Filename=:memory:");
+_connection.Open();
+var options = new DbContextOptionsBuilder<IdentityContext>()
+                .UseSqlite(_connection)
+                .Options;
 
+builder.Services.AddDbContext<IIdentityContext, IdentityContext>(opt => opt.UseSqlite(_connection));
+builder.Services.AddScoped<IIdentityContext, IdentityContext>();
+
+//builder.Services.AddUserService();
 //mediatR
-builder.Services.AddSingleton<IDataAccess, DataAccess>();
-builder.Services.AddMediatR(typeof(LibraryEntrypoint).Assembly);
+//builder.Services.AddSingleton<IDataAccess, DataAccess>();
+builder.Services.AddMediatR(typeof(BusinessLayerBootstrap).Assembly);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -88,5 +98,9 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+var contextScope = app.Services.CreateScope();
+var context = contextScope.ServiceProvider.GetRequiredService<IdentityContext>(); 
+IdentityContextInitializeDatabase.InitDatabaseAsync(context).GetAwaiter().GetResult();
 
 app.Run();
