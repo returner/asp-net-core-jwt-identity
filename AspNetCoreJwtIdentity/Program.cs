@@ -3,7 +3,6 @@ using AspNetCoreJwtIdentity.Policies;
 using AspNetCoreJwtIdentity.Repositories.MediatR;
 using AspNetCoreJwtIdentity.Services;
 using BusinessLayer;
-using BusinessLayer.ServiceExtentions;
 using Entities;
 using Entities.Interfaces;
 using MediatR;

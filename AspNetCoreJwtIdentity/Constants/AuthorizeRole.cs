@@ -2,6 +2,7 @@
 {
     public static class AuthorizeRole
     {
-        public const string Users = "Users";
+        public const string Administrators = "administrators";
+        public const string Users = "users";
     }
 }

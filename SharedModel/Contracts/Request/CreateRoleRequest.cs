@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedModel.Contract.Request
+namespace SharedModel.Contracts.Request
 {
-    public record UserRequest(string Username, string Password, string? GroupName);
+    public record CreateRoleRequest(string Name, string? Description);
 }

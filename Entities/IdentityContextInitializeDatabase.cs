@@ -18,18 +18,30 @@ namespace Entities
 
         private static async Task ExecuteDatabaseAsync(IdentityContext context)
         {
-            //using var context = scopedServiceProvider.GetRequiredService<IdentityContext>();
             context.Database.EnsureCreated();
-            await BuildInitDataAsync(context);
+            await CreateDefaultGroupAsync(context);
+            await CreateAdministratorUsers(context);
             await context.SaveChangesAsync();
         }
 
-        private static async Task BuildInitDataAsync(IIdentityContext context)
+        private static async Task CreateDefaultGroupAsync(IIdentityContext context)
+        {
+            var defaultAdminGroup = new Group
+            {
+                Name = "Administrators",
+                Description = "administrators",
+                Created = DateTime.UtcNow,
+                Updated = DateTime.MinValue,
+            };
+            await context.Groups.AddAsync(defaultAdminGroup);
+        }
+
+        private static async Task CreateAdministratorUsers(IIdentityContext context)
         {
             await context.Users.AddAsync(new User
             {
                 Id = 1,
-                Username = "user1",
+                Username = "admin",
                 Password = "1111",
                 Created = DateTime.UtcNow,
                 Updated = DateTime.MinValue

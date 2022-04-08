@@ -62,10 +62,10 @@ namespace AspNetCoreJwtIdentity.Controllers
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 
-            if (user.Role != null)
-            {
-                claims.Append(new Claim(ClaimTypes.Role, user.Role.Name));
-            }
+            //if (user.Role != null)
+            //{
+            //    claims.Append(new Claim(ClaimTypes.Role, user.Role.Name));
+            //}
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],

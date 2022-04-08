@@ -16,7 +16,6 @@ namespace Entities.Interfaces
 
         DbSet<User> Users { get; set; }
         DbSet<Group> Groups { get; set; }
-        DbSet<Role> Roles { get; set; }
         DbSet<UserPool> UserPools { get; set; }
         DbSet<JwtTokenConfiguration> JwtTokenConfigurations { get; set; }
     }
