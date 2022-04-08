@@ -1,6 +1,5 @@
 using AspNetCoreJwtIdentity.Filters;
 using AspNetCoreJwtIdentity.Policies;
-using AspNetCoreJwtIdentity.Repositories.MediatR;
 using AspNetCoreJwtIdentity.Services;
 using BusinessLayer;
 using Entities;
@@ -30,21 +29,21 @@ var appSettings = new ConfigurationService(builder.Configuration).AppSettings();
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
-{
-    options.RequireHttpsMetadata = false;
-    options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"])),
-        ClockSkew = TimeSpan.Zero
-    };
-});
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"])),
+            ClockSkew = TimeSpan.Zero
+        };
+    });
 
 builder.Services.AddAuthorization(config =>
 {
@@ -100,7 +99,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 var contextScope = app.Services.CreateScope();
-var context = contextScope.ServiceProvider.GetRequiredService<IdentityContext>(); 
+var context = contextScope.ServiceProvider.GetRequiredService<IdentityContext>();
 IdentityContextInitializeDatabase.InitDatabaseAsync(context).GetAwaiter().GetResult();
 
 app.Run();
