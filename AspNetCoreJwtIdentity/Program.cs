@@ -1,6 +1,5 @@
 using AspNetCoreJwtIdentity.Filters;
 using AspNetCoreJwtIdentity.Policies;
-using AspNetCoreJwtIdentity.Repositories.MediatR;
 using AspNetCoreJwtIdentity.Services;
 using BusinessLayer;
 using Entities;
@@ -100,7 +99,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 var contextScope = app.Services.CreateScope();
-var context = contextScope.ServiceProvider.GetRequiredService<IdentityContext>(); 
+var context = contextScope.ServiceProvider.GetRequiredService<IdentityContext>();
 IdentityContextInitializeDatabase.InitDatabaseAsync(context).GetAwaiter().GetResult();
 
 app.Run();

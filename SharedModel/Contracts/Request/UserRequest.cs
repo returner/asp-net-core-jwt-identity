@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SharedModel.Contract.Request
+﻿namespace SharedModel.Contract.Request
 {
     public record UserRequest(string Username, string Password, string? GroupName);
 }

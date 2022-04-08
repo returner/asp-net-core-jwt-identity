@@ -3,11 +3,6 @@ using Entities.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using SharedModel.DataTransfers.Requests.Groups;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer.Handlers.Groups
 {

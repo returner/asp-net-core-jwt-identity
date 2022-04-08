@@ -1,7 +1,6 @@
 ﻿using AspNetCoreJwtIdentity.Constants;
 using AspNetCoreJwtIdentity.Helpers;
 using AspNetCoreJwtIdentity.Middlewares;
-using BusinessLayer.Commands;
 using BusinessLayer.Commands.Users;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -10,7 +9,6 @@ using SharedModel.Contract.Request;
 using SharedModel.Contract.Response;
 using SharedModel.Contracts.Response;
 using SharedModel.DataTransfers;
-using SharedModel.Enums;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 using System.Net.Mime;
@@ -46,7 +44,7 @@ namespace AspNetCoreJwtIdentity.Controllers
                 var result = await _mediator.Send(new CreateUserCommand(new UserDtoRequest(request.Username, request.Password)));
                 return ApiResultHelper.Success(result);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //return ApiErrorResponse(ApiError.Exception, ex.Message);
                 return ApiResultHelper.Exception(_logger, ex);
