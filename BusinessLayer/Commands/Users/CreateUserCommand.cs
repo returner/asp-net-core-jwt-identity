@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using SharedModel.DataTransfers;
-using SharedModel.DataTransfers.Responses;
+using SharedModel.Payloads;
+using SharedModel.Payloads.Responses;
 
 namespace BusinessLayer.Commands.Users
 {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using SharedModel.DataTransfers.Requests;
-using SharedModel.DataTransfers.Responses;
+using SharedModel.Payloads.Requests;
+using SharedModel.Payloads.Responses;
 
 namespace BusinessLayer.Commands.Groups
 {

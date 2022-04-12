@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using SharedModel.DataTransfers.Requests.Groups;
+using SharedModel.Payloads.Requests.Groups;
 
 namespace BusinessLayer.Queries
 {

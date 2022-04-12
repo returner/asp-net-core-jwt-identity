@@ -2,7 +2,7 @@
 using Entities.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using SharedModel.DataTransfers.Requests.Groups;
+using SharedModel.Payloads.Requests.Groups;
 
 namespace BusinessLayer.Handlers.Groups
 {

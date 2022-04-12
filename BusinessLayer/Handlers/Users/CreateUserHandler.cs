@@ -2,7 +2,7 @@
 using Entities.Interfaces;
 using Entities.Models;
 using MediatR;
-using SharedModel.DataTransfers.Responses;
+using SharedModel.Payloads.Responses;
 
 namespace BusinessLayer.Handlers.Users
 {

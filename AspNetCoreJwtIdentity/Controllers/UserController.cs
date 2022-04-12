@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using SharedModel.Contract.Request;
 using SharedModel.Contract.Response;
 using SharedModel.Contracts.Response;
-using SharedModel.DataTransfers;
+using SharedModel.Payloads;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 using System.Net.Mime;
