@@ -93,5 +93,4 @@ namespace AspNetCoreJwtIdentity.Repositories.MediatR
 
 
     }
-
 }
