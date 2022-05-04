@@ -22,8 +22,8 @@ namespace BusinessLayer.Handlers.Groups
                     Created = DateTime.UtcNow,
                     Updated = DateTime.MinValue,
                 };
-                await _context.Groups.AddAsync(group);
-                await _context.SaveChangesAsync();
+                await _context.Groups.AddAsync(group, cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
 
                 return new CreateGroupDtoResponse(group.Id, group.Name, group.Description, group.Created);
             }

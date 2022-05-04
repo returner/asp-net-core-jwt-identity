@@ -20,7 +20,7 @@ namespace BusinessLayer.Handlers.Groups
                     .Skip((request.getGroupsQueryDtoRequest.pageIndex - 1) * request.getGroupsQueryDtoRequest.pageSize)
                     .Take(request.getGroupsQueryDtoRequest.pageSize)
                     .AsNoTracking()
-                    .ToArrayAsync();
+                    .ToArrayAsync(cancellationToken: cancellationToken);
 
                 if (groups.Any())
                 {

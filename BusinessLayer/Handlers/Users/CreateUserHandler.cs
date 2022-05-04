@@ -23,8 +23,8 @@ namespace BusinessLayer.Handlers.Users
                     Updated = DateTime.MinValue,
                 };
 
-                await _context.Users.AddAsync(user);
-                await _context.SaveChangesAsync();
+                await _context.Users.AddAsync(user, cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
 
                 return new UserDtoResponse(user.Id, user.Username);
             }
