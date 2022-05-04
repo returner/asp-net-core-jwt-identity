@@ -1,7 +1,4 @@
-﻿using Entities;
-using Entities.Interfaces;
-using Entities.Models;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCoreJwtIdentity.Controllers

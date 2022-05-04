@@ -4,6 +4,6 @@ namespace AspNetCoreJwtIdentity.Properties
 {
     public record TokenSetting : ITokenSetting
     {
-        public int DefaultExpireIntervalMinutes {get; init; }
+        public int DefaultExpireIntervalMinutes { get; init; }
     }
 }
