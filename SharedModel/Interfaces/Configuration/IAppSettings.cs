@@ -2,7 +2,9 @@
 {
     public interface IAppSettings
     {
-        IJwtSetting Jwt { get; set; }
-        ITokenSetting Token { get; set; }
+        IJwtSetting Jwt { get; init; }
+        ITokenSetting Token { get; init; }
+        IDatabaseSetting DatabaseSetting { get; init; }
+        IEnumerable<ICorsOrigin> CorsOrigins { get; init; }
     }
 }

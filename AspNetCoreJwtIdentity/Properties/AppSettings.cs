@@ -2,9 +2,12 @@
 
 namespace AspNetCoreJwtIdentity.Properties
 {
-    public class AppSettings : IAppSettings
+    public record AppSettings : IAppSettings
     {
-        public IJwtSetting Jwt { get; set; } = null!;
-        public ITokenSetting Token { get; set; } = null!;
+        public IJwtSetting Jwt { get; init; } = null!;
+        public ITokenSetting Token { get; init; } = null!;
+        public IDatabaseSetting DatabaseSetting { get; init; } = null!;
+        public IEnumerable<ICorsOrigin> CorsOrigins { get; init; } = null!;
     }
+
 }

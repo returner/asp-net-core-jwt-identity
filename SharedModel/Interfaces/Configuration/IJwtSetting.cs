@@ -2,8 +2,8 @@
 {
     public interface IJwtSetting
     {
-        string Audience { get; set; }
-        string Issuer { get; set; }
-        string SecretKey { get; set; }
+        string Audience { get; init; }
+        string Issuer { get; init; }
+        string SecretKey { get; init; }
     }
 }

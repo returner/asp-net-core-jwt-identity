@@ -2,7 +2,7 @@
 {
     public interface ITokenSetting
     { 
-        int DefaultExpireIntervalMinutes { get; set; }
+        int DefaultExpireIntervalMinutes { get; init; }
     }
 
 }

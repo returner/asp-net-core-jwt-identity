@@ -2,10 +2,10 @@
 
 namespace AspNetCoreJwtIdentity.Properties
 {
-    public class JwtSetting : IJwtSetting
+    public record JwtSetting : IJwtSetting
     {
-        public string SecretKey { get; set; } = null!;
-        public string Issuer { get; set; } = null!;
-        public string Audience { get; set; } = null!;
+        public string SecretKey { get; init; } = null!;
+        public string Issuer { get; init; } = null!;
+        public string Audience { get; init; } = null!;
     }
 }

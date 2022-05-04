@@ -3,11 +3,11 @@ services:
   db:
     image: mysql:5.7.34
     restart: always
-    container_name : netcore-jwt-identity-server
+    container_name : netcore-jwt-identity-server-dev
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_DATABASE=netcore-jwt-identity-server
+      - MYSQL_DATABASE=netcore-jwt-identity-server-dev
       - MYSQL_ROOT_PASSWORD=111111
     command:
       - --character-set-server=utf8mb4
