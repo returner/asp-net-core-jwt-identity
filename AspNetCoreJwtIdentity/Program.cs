@@ -1,6 +1,6 @@
+using AspNetCoreJwtIdentity.Configuration;
 using AspNetCoreJwtIdentity.Filters;
 using AspNetCoreJwtIdentity.Policies;
-using AspNetCoreJwtIdentity.Services;
 using BusinessLayer;
 using Entities;
 using Entities.Interfaces;
