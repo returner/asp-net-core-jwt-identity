@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AspNetCoreJwtIdentity_Test.Extensions
 {
@@ -28,7 +24,7 @@ namespace AspNetCoreJwtIdentity_Test.Extensions
             if (result is ObjectResult objectResult)
             {
                 if (objectResult is null)
-                { 
+                {
                     throw new InvalidOperationException("ObjectResult is null");
                 }
 
@@ -58,7 +54,7 @@ namespace AspNetCoreJwtIdentity_Test.Extensions
             throw new InvalidOperationException("result is not a type of ObjectResult");
         }
 
-        public static bool IsTypeOfValue<T> (this IActionResult result)
+        public static bool IsTypeOfValue<T>(this IActionResult result)
         {
             if (result is ObjectResult objectResult)
             {
@@ -73,7 +69,7 @@ namespace AspNetCoreJwtIdentity_Test.Extensions
             throw new InvalidOperationException("result is not a type of ObjectResult");
         }
 
-        public static bool IsSuccess (this IActionResult result)
+        public static bool IsSuccess(this IActionResult result)
         {
             if (result is OkObjectResult objectResult)
             {
@@ -83,7 +79,7 @@ namespace AspNetCoreJwtIdentity_Test.Extensions
             return false;
         }
 
-        public static bool IsBadRequest (this IActionResult result)
+        public static bool IsBadRequest(this IActionResult result)
         {
             if (result is BadRequestObjectResult objectResult)
             {

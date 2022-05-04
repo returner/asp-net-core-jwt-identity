@@ -1,5 +1,4 @@
-﻿using AspNetCoreJwtIdentity.Properties;
-using SharedModel.Interfaces.Configuration;
+﻿using SharedModel.Interfaces.Configuration;
 
 namespace AspNetCoreJwtIdentity.Configuration
 {

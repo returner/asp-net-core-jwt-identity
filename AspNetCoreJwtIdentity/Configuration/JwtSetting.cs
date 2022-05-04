@@ -1,6 +1,6 @@
 ﻿using SharedModel.Interfaces.Configuration;
 
-namespace AspNetCoreJwtIdentity.Properties
+namespace AspNetCoreJwtIdentity.Configuration
 {
     public record JwtSetting : IJwtSetting
     {

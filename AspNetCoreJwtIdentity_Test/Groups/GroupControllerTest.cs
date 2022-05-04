@@ -1,5 +1,4 @@
-﻿using AspNetCoreJwtIdentity.Controllers;
-using AspNetCoreJwtIdentity.Controllers.Group;
+﻿using AspNetCoreJwtIdentity.Controllers.Group;
 using AspNetCoreJwtIdentity.Controllers.Group.Contract.Request;
 using AspNetCoreJwtIdentity.Controllers.Group.Contract.Response;
 using AspNetCoreJwtIdentity_Test.Extensions;
@@ -8,8 +7,6 @@ using BusinessLayer.Handlers.Groups;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Moq;
-using SharedModel.Contracts.Request;
-using SharedModel.Contracts.Response;
 using SharedModel.Payloads.Requests;
 using SharedModel.Payloads.Responses;
 using System;

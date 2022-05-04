@@ -1,9 +1,9 @@
 ﻿using SharedModel.Interfaces.Configuration;
 
-namespace AspNetCoreJwtIdentity.Properties
+namespace AspNetCoreJwtIdentity.Configuration
 {
     public record TokenSetting : ITokenSetting
     {
-        public int DefaultExpireIntervalMinutes {get; init; }
+        public int DefaultExpireIntervalMinutes { get; init; }
     }
 }
