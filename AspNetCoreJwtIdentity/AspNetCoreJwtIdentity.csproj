@@ -39,7 +39,6 @@
     <Folder Include="Controllers\UserRepo\Contract\Response\" />
     <Folder Include="Controllers\User\Contract\Request\" />
     <Folder Include="Controllers\User\Contract\Response\" />
-    <Folder Include="Repositories\Interfaces\" />
   </ItemGroup>
 
   <ItemGroup>
