@@ -10,6 +10,7 @@ using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -38,9 +39,9 @@ builder.Services
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = appSettings.Jwt.Issuer,
-            ValidAudience = appSettings.Jwt.Audience,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(appSettings.Jwt.SecretKey)),
+            ValidIssuer = appSettings.Jwt?.Issuer,
+            ValidAudience = appSettings.Jwt?.Audience,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(appSettings.Jwt?.SecretKey ?? string.Empty)),
             ClockSkew = TimeSpan.Zero
         };
     });
@@ -57,6 +58,18 @@ builder.Services.AddAuthorization(config =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = appSettings.Swagger?.Title,
+        Version = appSettings.Swagger?.Version,
+        Description = appSettings.Swagger?.Description,
+        Contact = new OpenApiContact
+        {
+            Email = string.Empty,
+            Url = new Uri(appSettings.Swagger?.Link ?? string.Empty),
+        }
+    });
+    c.EnableAnnotations();
     c.AddSecurityDefinition("bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -65,6 +78,7 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "bearer",
     });
     c.OperationFilter<SwaggerAuthorizeCheckOperationFilter>();
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"), includeControllerXmlComments: true);
 });
 
 //**************** InMemoryDatabase

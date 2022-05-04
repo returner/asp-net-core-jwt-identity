@@ -2,9 +2,9 @@
 {
     public interface IDatabaseSetting
     { 
-        string DatabaseName { get; init; }
-        string ConnectionString { get; init; }
-        Version DbVersion { get; init; }
+        string? DatabaseName { get; init; }
+        string? ConnectionString { get; init; }
+        Version? DbVersion { get; init; }
     }
 
 }

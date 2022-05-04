@@ -33,6 +33,14 @@ namespace AspNetCoreJwtIdentity.Configuration
                     DbVersion = _configuration.Section<Version>(AppSettingsItem.DatabaseSetting, "DbVersion")
                 },
                 CorsOrigins = _configuration.Section<IEnumerable<CorsOrigin>>(AppSettingsItem.CorsOrigins, null).ToArray(),
+                Swagger = new SwaggerSetting
+                {
+                    Title = _configuration.Section<string>(AppSettingsItem.Swagger, "Title"),
+                    Description = _configuration.Section<string>(AppSettingsItem.Swagger, "Description"),
+                    Email = _configuration.Section<string>(AppSettingsItem.Swagger, "Email"),
+                    Link = _configuration.Section<string>(AppSettingsItem.Swagger, "Link"),
+                    Version = _configuration.Section<string>(AppSettingsItem.Swagger, "Version"),
+                }
             };
 
             return appSettings;

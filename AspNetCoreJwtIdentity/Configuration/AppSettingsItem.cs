@@ -2,6 +2,6 @@
 {
     public enum AppSettingsItem
     {
-        Jwt, Token, DatabaseSetting, CorsOrigins
+        Jwt, Token, DatabaseSetting, CorsOrigins, Swagger
     }
 }

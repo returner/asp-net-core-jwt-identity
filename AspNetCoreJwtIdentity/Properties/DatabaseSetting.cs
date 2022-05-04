@@ -4,8 +4,8 @@ namespace AspNetCoreJwtIdentity.Properties
 {
     public record DatabaseSetting : IDatabaseSetting
     {
-        public string DatabaseName { get; init; } = null!;
-        public string ConnectionString { get; init; } = null!;
-        public Version DbVersion { get; init; } = null!;
+        public string? DatabaseName { get; init; }
+        public string? ConnectionString { get; init; }
+        public Version? DbVersion { get; init; }
     }
 }

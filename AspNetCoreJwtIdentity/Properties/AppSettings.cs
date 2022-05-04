@@ -4,10 +4,11 @@ namespace AspNetCoreJwtIdentity.Properties
 {
     public record AppSettings : IAppSettings
     {
-        public IJwtSetting Jwt { get; init; } = null!;
-        public ITokenSetting Token { get; init; } = null!;
-        public IDatabaseSetting DatabaseSetting { get; init; } = null!;
-        public IEnumerable<ICorsOrigin> CorsOrigins { get; init; } = null!;
+        public IJwtSetting? Jwt { get; init; }
+        public ITokenSetting? Token { get; init; }
+        public IDatabaseSetting? DatabaseSetting { get; init; }
+        public IEnumerable<ICorsOrigin?>? CorsOrigins { get; init; }
+        public ISwaggerSetting? Swagger { get; init; }
     }
 
 }

@@ -2,7 +2,7 @@
 {
     public interface ICorsOrigin
     {
-        string Origin { get; init; }
-        string Name { get; init; }
+        string? Origin { get; init; }
+        string? Name { get; init; }
     }
 }
