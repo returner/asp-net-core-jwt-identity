@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreJwtIdentity", "AspNetCoreJwtIdentity.csproj", "{0F16B6A2-EB3F-4C2B-B5CA-9DB41962C50F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreJwtIdentity", ".\AspNetCoreJwtIdentity\AspNetCoreJwtIdentity.csproj", "{0F16B6A2-EB3F-4C2B-B5CA-9DB41962C50F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "..\Entities\Entities.csproj", "{EFDBC7B8-1181-4D2E-9E11-F0545564465D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", ".\Entities\Entities.csproj", "{EFDBC7B8-1181-4D2E-9E11-F0545564465D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedModel", "..\SharedModel\SharedModel.csproj", "{394CDB8F-DE5E-4950-8579-809272CB9355}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedModel", ".\SharedModel\SharedModel.csproj", "{394CDB8F-DE5E-4950-8579-809272CB9355}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreJwtIdentity_Test", "..\AspNetCoreJwtIdentity_Test\AspNetCoreJwtIdentity_Test.csproj", "{0C29EFDD-236A-4609-BC86-0817B252D1C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreJwtIdentity_Test", ".\AspNetCoreJwtIdentity_Test\AspNetCoreJwtIdentity_Test.csproj", "{0C29EFDD-236A-4609-BC86-0817B252D1C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "..\BusinessLayer\BusinessLayer.csproj", "{8735A5DF-6178-4CAD-B119-1D89C1CDA6B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", ".\BusinessLayer\BusinessLayer.csproj", "{8735A5DF-6178-4CAD-B119-1D89C1CDA6B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
