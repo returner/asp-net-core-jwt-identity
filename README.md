@@ -1,5 +1,5 @@
 # netcore-jwt-identity-server
- asp.net core based lightweight JWT Authenticate and authorize example 
+asp.net core based lightweight JWT Authenticate and authorize example
 
 ## Features
 
