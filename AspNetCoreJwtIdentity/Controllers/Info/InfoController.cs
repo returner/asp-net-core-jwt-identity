@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCoreJwtIdentity.Controllers
 {
+    /// <summary>
+    /// Example webapi
+    /// </summary>
     [Authorize]
     [ApiController]
     [Route("[controller]")]
@@ -15,6 +18,10 @@ namespace AspNetCoreJwtIdentity.Controllers
 
         }
 
+        /// <summary>
+        /// public api example
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpGet("Public")]
         public string GetPublic()
@@ -22,12 +29,20 @@ namespace AspNetCoreJwtIdentity.Controllers
             return "ok public api";
         }
 
+        /// <summary>
+        /// Authorize api example
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Auth")]
         public string GetAuthorized()
         {
             return "ok auth api";
         }
 
+        /// <summary>
+        /// Authorize and policy exmaple
+        /// </summary>
+        /// <returns></returns>
         [Authorize(Policy = IdentityPolicy.User)]
         [HttpGet("Policy")]
         public string GetPolicy()
@@ -35,6 +50,10 @@ namespace AspNetCoreJwtIdentity.Controllers
             return "Ok policy api";
         }
 
+        /// <summary>
+        /// anonymous api example
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpGet("Anonymous")]
         public ObjectResult GetAnonymous()
@@ -50,6 +69,10 @@ namespace AspNetCoreJwtIdentity.Controllers
             }
         }
 
+        /// <summary>
+        /// get claim
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Claim")]
         public ObjectResult GetClaim()
         {

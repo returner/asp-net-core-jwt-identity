@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCoreJwtIdentity.Controllers
 {
-    //공부할것
     //https://docs.microsoft.com/ko-kr/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
     //https://www.c-sharpcorner.com/UploadFile/b1df45/unit-of-work-in-repository-pattern/
     public class UserRepoController : ApiControllerBase
@@ -15,6 +14,10 @@ namespace AspNetCoreJwtIdentity.Controllers
         {
         }
 
+        /// <summary>
+        /// [dev] get all users
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {

@@ -14,6 +14,9 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace AspNetCoreJwtIdentity.Controllers.Group
 {
+    /// <summary>
+    /// create, delete and update policy groups
+    /// </summary>
     [Authorize(Policy = AuthorizePolicy.Administrators)]
     public class GroupController : ApiControllerBase
     {
@@ -21,6 +24,11 @@ namespace AspNetCoreJwtIdentity.Controllers.Group
         {
         }
 
+        /// <summary>
+        /// Create Auth Group
+        /// </summary>
+        /// <param name="createGroupRequest"></param>
+        /// <returns></returns>
         [HttpPost("CreateGroup")]
         [SwaggerResponse(200, HttpStatusCodeDescription.Ok, typeof(CreateGroupResponse))]
         public async Task<IActionResult> CreateGroupAsync(CreateGroupRequest createGroupRequest)
@@ -37,6 +45,12 @@ namespace AspNetCoreJwtIdentity.Controllers.Group
             }
         }
 
+        /// <summary>
+        /// Get all groups
+        /// </summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         [HttpGet("Groups/{pageIndex:int:min(1)}/{pageSize:int:range(5,20)}")]
         [SwaggerResponse(200, HttpStatusCodeDescription.Ok, typeof(IEnumerable<GetGroupResponse>))]
         public async Task<IActionResult> GetAllGroupsAsync(int pageIndex, int pageSize)

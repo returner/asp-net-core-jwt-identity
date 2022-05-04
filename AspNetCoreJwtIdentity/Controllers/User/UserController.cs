@@ -11,6 +11,9 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace AspNetCoreJwtIdentity.Controllers
 {
+    /// <summary>
+    /// CRUD individual user
+    /// </summary>
     //[Authorize(Policy = AuthorizePolicy.Administrators, Roles = AuthorizeRole.Users)]
     [Authorize]
     public class UserController : ApiControllerBase
@@ -19,6 +22,11 @@ namespace AspNetCoreJwtIdentity.Controllers
         {
         }
 
+        /// <summary>
+        /// Register User
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [SwaggerResponse(200, HttpStatusCodeDescription.Ok, typeof(UserResponse))]

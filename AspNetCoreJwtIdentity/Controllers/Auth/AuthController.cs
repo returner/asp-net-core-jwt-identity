@@ -18,6 +18,9 @@ namespace AspNetCoreJwtIdentity.Controllers.Auth
 {
     //https://aspdotnet.tistory.com/2799 - refresh token :: todo
     //https://curity.io/resources/learn/jwt-best-practices/
+    /// <summary>
+    /// User authorized methods
+    /// </summary>
     public class AuthController : ApiControllerBase
     {
         private readonly IConfiguration _configuration;
@@ -29,6 +32,11 @@ namespace AspNetCoreJwtIdentity.Controllers.Auth
             _context = identityContext;
         }
 
+        /// <summary>
+        /// User signin
+        /// </summary>
+        /// <param name="signinUserRequest"></param>
+        /// <returns></returns>
         [HttpPost("Signin")]
         [AllowAnonymous]
         [SwaggerResponse(200, HttpStatusCodeDescription.Ok, typeof(SigninUserResponse))]
