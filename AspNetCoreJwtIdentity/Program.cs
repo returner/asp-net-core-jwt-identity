@@ -78,9 +78,7 @@ var options = new DbContextOptionsBuilder<IdentityContext>()
 builder.Services.AddDbContext<IIdentityContext, IdentityContext>(opt => opt.UseSqlite(_connection));
 builder.Services.AddScoped<IIdentityContext, IdentityContext>();
 
-//builder.Services.AddUserService();
 //mediatR
-//builder.Services.AddSingleton<IDataAccess, DataAccess>();
 builder.Services.AddMediatR(typeof(BusinessLayerBootstrap).Assembly);
 var app = builder.Build();
 

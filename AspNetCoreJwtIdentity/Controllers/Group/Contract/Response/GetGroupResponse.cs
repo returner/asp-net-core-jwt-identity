@@ -1,6 +1,6 @@
-﻿namespace SharedModel.Payloads.Responses
+﻿namespace AspNetCoreJwtIdentity.Controllers.Group.Contract.Response
 {
-    public class GetGroupResponse
+    public record GetGroupResponse : IContractResponseBase
     {
         public int Id { get; init; }
         public string Name { get; init; } = null!;

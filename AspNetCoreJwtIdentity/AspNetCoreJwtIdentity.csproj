@@ -4,6 +4,10 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<NoWarn>$(NoWarn);1591</NoWarn>
+	<NoWarn>$(NoWarn);8632</NoWarn>
+	<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +31,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\Constraints\Contract\Request\" />
+    <Folder Include="Controllers\Constraints\Contract\Response\" />
+    <Folder Include="Controllers\Info\Contract\Request\" />
+    <Folder Include="Controllers\Info\Contract\Response\" />
+    <Folder Include="Controllers\UserRepo\Contract\Request\" />
+    <Folder Include="Controllers\UserRepo\Contract\Response\" />
+    <Folder Include="Controllers\User\Contract\Request\" />
+    <Folder Include="Controllers\User\Contract\Response\" />
     <Folder Include="Repositories\Interfaces\" />
   </ItemGroup>
 

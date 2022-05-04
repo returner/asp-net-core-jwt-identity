@@ -1,4 +1,7 @@
 ﻿using AspNetCoreJwtIdentity.Controllers;
+using AspNetCoreJwtIdentity.Controllers.Group;
+using AspNetCoreJwtIdentity.Controllers.Group.Contract.Request;
+using AspNetCoreJwtIdentity.Controllers.Group.Contract.Response;
 using AspNetCoreJwtIdentity_Test.Extensions;
 using BusinessLayer.Commands.Groups;
 using BusinessLayer.Handlers.Groups;
@@ -65,7 +68,7 @@ namespace AspNetCoreJwtIdentity_Test.Groups
             mediator.Setup(d => d.Send(command, new CancellationToken())).ReturnsAsync(dtoResponse);
 
             // acts
-            var sut = new GroupController(_logger.Object, mediator.Object);
+            var sut = new GroupController(mediator.Object, _logger.Object);
             var result = await sut.CreateGroupAsync(request);
 
             // asserts

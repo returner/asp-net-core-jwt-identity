@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace AspNetCoreJwtIdentity.Middlewares
 {
-    public class WebApiResultNonNullAttribute : ActionFilterAttribute
+    public class WebApiResultNullToEmptyValueAttribute : ActionFilterAttribute
     {
         public override void OnResultExecuting(ResultExecutingContext context)
         {

@@ -15,23 +15,12 @@ using System.Net.Mime;
 
 namespace AspNetCoreJwtIdentity.Controllers
 {
-    [ApiController]
-    [Route("controller")]
-    [WebApiResultNonNullAttribute]
-    [Produces(MediaTypeNames.Application.Json)]
     //[Authorize(Policy = AuthorizePolicy.Administrators, Roles = AuthorizeRole.Users)]
     [Authorize]
-    [SwaggerResponse((int)HttpStatusCode.BadRequest, HttpStatusCodeDescription.BadRequest, typeof(ApiErrorResponse))]
-    [SwaggerResponse((int)HttpStatusCode.Unauthorized, HttpStatusCodeDescription.Unauthorized)]
-    [SwaggerResponse((int)HttpStatusCode.Forbidden, HttpStatusCodeDescription.Forbidden)]
-    public class UserController : ControllerBase
+    public class UserController : ApiControllerBase
     {
-        private readonly IMediator _mediator;
-        private readonly ILogger<UserController> _logger;
-        public UserController(ILogger<UserController> logger, IMediator mediator)
+        public UserController(IMediator mediator, ILogger<UserController> logger) : base(mediator, logger)
         {
-            _mediator = mediator;
-            _logger = logger;
         }
 
         [HttpPost]
@@ -41,7 +30,7 @@ namespace AspNetCoreJwtIdentity.Controllers
         {
             try
             {
-                var result = await _mediator.Send(new CreateUserCommand(new UserDtoRequest(request.Username, request.Password)));
+                var result = await CommandAsync(new CreateUserCommand(new UserDtoRequest(request.Username, request.Password)));
                 return ApiResultHelper.Success(result);
             }
             catch (Exception ex)

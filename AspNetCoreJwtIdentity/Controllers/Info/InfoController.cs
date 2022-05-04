@@ -1,4 +1,5 @@
 ﻿using AspNetCoreJwtIdentity.Policies;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,8 +8,13 @@ namespace AspNetCoreJwtIdentity.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class InfoController : ControllerBase
+    public class InfoController : ApiControllerBase
     {
+        public InfoController(IMediator mediator, ILogger<InfoController> logger) : base(mediator, logger)
+        {
+
+        }
+
         [AllowAnonymous]
         [HttpGet("Public")]
         public string GetPublic()
@@ -36,7 +42,7 @@ namespace AspNetCoreJwtIdentity.Controllers
             var currentUser = HttpContext.User;
             if (currentUser.HasClaim(c => c.Type.Equals("role")))
             {
-                return StatusCode(StatusCodes.Status200OK, currentUser.Claims.FirstOrDefault(c => c.Type.Equals("role")).Value);
+                return StatusCode(StatusCodes.Status200OK, currentUser.Claims.FirstOrDefault(c => c.Type.Equals("role"))?.Value);
             }
             else
             {
@@ -50,7 +56,7 @@ namespace AspNetCoreJwtIdentity.Controllers
             var currentUser = HttpContext.User;
             if (currentUser.HasClaim(c => c.Type.Equals("role")))
             {
-                return StatusCode(StatusCodes.Status200OK, currentUser.Claims.FirstOrDefault(c => c.Type.Equals("role")).Value);
+                return StatusCode(StatusCodes.Status200OK, currentUser.Claims.FirstOrDefault(c => c.Type.Equals("role"))?.Value);
             }
             else
             {

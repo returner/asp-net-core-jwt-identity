@@ -1,22 +1,17 @@
-﻿using AspNetCoreJwtIdentity.Constants;
-using AspNetCoreJwtIdentity.Middlewares;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SharedModel.Contracts.Response;
-using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
-using System.Net.Mime;
 
-namespace AspNetCoreJwtIdentity.Controllers
+namespace AspNetCoreJwtIdentity.Controllers.Constraints
 {
-    [ApiController]
-    [Route("controller")]
-    [WebApiResultNonNullAttribute]
-    [Produces(MediaTypeNames.Application.Json)]
-    [SwaggerResponse((int)HttpStatusCode.BadRequest, HttpStatusCodeDescription.BadRequest, typeof(ApiErrorResponse))]
-    [SwaggerResponse((int)HttpStatusCode.Unauthorized, HttpStatusCodeDescription.Unauthorized)]
-    [SwaggerResponse((int)HttpStatusCode.Forbidden, HttpStatusCodeDescription.Forbidden)]
-    public class ConstraintsController : ControllerBase
+    /// <summary>
+    /// route contraint examples
+    /// </summary>
+    public class ConstraintsController : ApiControllerBase
     {
+        public ConstraintsController(IMediator mediator, ILogger<ConstraintsController> logger) : base(mediator, logger)
+        {
+
+        }
         // Constraints 코드 : https://github.com/dotnet/aspnetcore/tree/main/src/Http/Routing/src/Constraints
         // https://docs.microsoft.com/ko-kr/aspnet/core/fundamentals/routing?view=aspnetcore-6.0
 
@@ -103,14 +98,14 @@ namespace AspNetCoreJwtIdentity.Controllers
         /// </summary>
         /// <param name="Price"></param>
         /// <returns></returns>
-        [HttpGet("DecimalMinMax/{Price:decimal:min(10.0):max(100.0)}")]
-        public Decimal DecimalMinMax(Decimal Price)
+        [HttpGet("DecimalMinMax/{Price:decimal:min(10):max(100)}")]
+        public decimal DecimalMinMax(decimal Price)
         {
             return Price;
         }
 
         [HttpGet("DecimalRange/{Price:decimal:range(10,100)}")]
-        public Decimal DecimalRange(Decimal Price)
+        public decimal DecimalRange(decimal Price)
         {
             return Price;
         }
@@ -139,13 +134,6 @@ namespace AspNetCoreJwtIdentity.Controllers
             return count;
         }
 
-        //FormatException: Input string was not in a correct format
-        //[HttpGet("IntegerMinMax/{count:int:min(10),max(3)}")]
-        //public int IntegerMinMax(int count)
-        //{
-        //    return count;
-        //}
-
         /// <summary>
         /// int : 5 ~ 10
         /// </summary>
@@ -156,13 +144,6 @@ namespace AspNetCoreJwtIdentity.Controllers
         {
             return count;
         }
-
-        //ArgumentOutOfRangeException: The value for argument 'min' should be less than or equal to the value for the argument 'max'. (Parameter 'min') Actual value was 10
-        //[HttpGet("IntegerRangeReverse/{count:int:range(10,5)}")]
-        //public int IntegerRangeReverse(int count)
-        //{
-        //    return count;
-        //}
     }
 
 }
