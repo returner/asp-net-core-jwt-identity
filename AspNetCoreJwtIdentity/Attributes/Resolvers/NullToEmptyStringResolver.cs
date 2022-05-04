@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace AspNetCoreJwtIdentity.Middlewares
+namespace AspNetCoreJwtIdentity.Attributes.Resolvers
 {
     public class NullToEmptyStringResolver : CamelCasePropertyNamesContractResolver
     {

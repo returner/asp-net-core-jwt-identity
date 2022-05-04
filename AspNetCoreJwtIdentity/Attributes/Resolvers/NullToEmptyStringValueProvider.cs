@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Serialization;
 using System.Reflection;
 
-namespace AspNetCoreJwtIdentity.Middlewares
+namespace AspNetCoreJwtIdentity.Attributes.Resolvers
 {
     public class NullToEmptyStringValueProvider : IValueProvider
     {

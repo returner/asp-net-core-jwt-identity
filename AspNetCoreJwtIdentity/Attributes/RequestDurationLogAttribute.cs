@@ -2,7 +2,7 @@
 using SharedModel.Constants;
 using System.Diagnostics;
 
-namespace AspNetCoreJwtIdentity.Middlewares
+namespace AspNetCoreJwtIdentity.Attributes
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
     public class RequestDurationLogAttribute : ActionFilterAttribute

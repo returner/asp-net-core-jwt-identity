@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreJwtIdentity.Attributes.Resolvers;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
 
-namespace AspNetCoreJwtIdentity.Middlewares
+namespace AspNetCoreJwtIdentity.Attributes
 {
     public class WebApiResultNullToEmptyValueAttribute : ActionFilterAttribute
     {

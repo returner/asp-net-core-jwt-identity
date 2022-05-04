@@ -1,5 +1,5 @@
-﻿using AspNetCoreJwtIdentity.Constants;
-using AspNetCoreJwtIdentity.Middlewares;
+﻿using AspNetCoreJwtIdentity.Attributes;
+using AspNetCoreJwtIdentity.Constants;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SharedModel.Contracts.Response;

@@ -1,17 +1,13 @@
 ﻿using AspNetCoreJwtIdentity.Constants;
 using AspNetCoreJwtIdentity.Helpers;
-using AspNetCoreJwtIdentity.Middlewares;
 using BusinessLayer.Commands.Users;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SharedModel.Contract.Request;
 using SharedModel.Contract.Response;
-using SharedModel.Contracts.Response;
 using SharedModel.Payloads;
 using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
-using System.Net.Mime;
 
 namespace AspNetCoreJwtIdentity.Controllers
 {
@@ -35,7 +31,6 @@ namespace AspNetCoreJwtIdentity.Controllers
             }
             catch (Exception ex)
             {
-                //return ApiErrorResponse(ApiError.Exception, ex.Message);
                 return ApiResultHelper.Exception(_logger, ex);
             }
 
